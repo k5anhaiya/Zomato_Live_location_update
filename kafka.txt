@@ -20,3 +20,21 @@ to produce some message in producer
 create consumer
 ---------------
 .\bin\windows\kafka-console-consumer.bat --topic myFirstTopic --from-beginning --bootstrap-server localhost:9092
+
+
+producer application.properties
+--------------------------------
+spring.kafka.producer.bootstrap-servers=localhost:9092
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+
+
+consumer application.properties
+---------------------------------
+
+server.port=8081
+spring.kafka.consumer.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=group-1
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.consumer.value-serializer=org.apache.kafka
